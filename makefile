@@ -5,7 +5,10 @@ build: ## Builds container and compiles project
 	sudo docker build . -t cpp_dev 
 
 compile: ## Compiles code using container
-	sudo docker run -v ${PWD}/src:/src cpp_dev compile 
+	sudo docker run -v ${PWD}/src:/src:z cpp_dev src/app.sh compile 
 
 run: ## Run compiled code
-	sudo docker run -v ${PWD}/src:/src cpp_dev runapp
+	sudo docker run -v ${PWD}/src:/src:z cpp_dev src/app.sh runapp
+
+int: ## Interactive mode for container
+	sudo docker run -it -v ${PWD}/src:/src:z cpp_dev 

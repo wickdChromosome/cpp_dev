@@ -1,3 +1,9 @@
+#define CPPHTTPLIB_OPENSSL_SUPPORT
+
+#include <iostream>
+#include <string>
+
+
 #include <httplib.h>
 #include <nlohmann/json.hpp>
 
@@ -19,7 +25,7 @@ void load_settings() {
 // MAIN
 //#############################################################################
 int main() {
-
-	std::cout << "Shits working" << std::endl;
+	httplib::Client cli("https://alza.cz");
+	std::cout << cli.Get("/EN/hobby/campgo-axe-ax3006-d6092952.htm")->body;
 
 }

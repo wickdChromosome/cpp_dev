@@ -10,7 +10,7 @@ ADD ./src/conanfile.txt .
 
 RUN conan install . --build=missing
 
-ENTRYPOINT ["bash", "src/app.sh"]
+ENTRYPOINT ["/bin/bash"]
 
 
 
